@@ -39,7 +39,7 @@ class App extends React.Component{
         return(
             <Router>
                 <Switch>
-            <Route exact path="https://stoic-wilson-6e8c75.netlify.app/" render={props => <LandingScreen onTokenChange = {eventhandler} />}/>
+            <Route exact path="/" render={props => <LandingScreen onTokenChange = {eventhandler} />}/>
             
             <Route exact path={this.state.path} render={props => <AddToQ token = {this.state.token} path={this.state.path} />}/>
             </Switch>
