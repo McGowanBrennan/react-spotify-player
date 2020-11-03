@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as $ from "jquery";
-import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
 import Player from "./Player";
 import AddToQ from "./AddToQ"
@@ -78,6 +77,7 @@ class LandingScreen extends Component {
   }
 
   componentWillUnmount() {
+    console.log(process.env.REACT_APP_REDIRECTURI)
     // clear the interval to save resources
     clearInterval(this.interval);
   }
@@ -198,7 +198,7 @@ class LandingScreen extends Component {
 
               <a onClick = {this.handleClick}
                 className="btn btn--loginApp-link"
-                href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri + this.state.customURL}&scope=${scopes.join(
+                href={`${process.env.REACT_APP_AUTHENDPOINT}?client_id=${process.env.REACT_APP_CLIENTID}&redirect_uri=${process.env.REACT_APP_REDIRECTURI + this.state.customURL}&scope=${process.env.REACT_APP_SCOPES.join(
                   "%20"
                 )}&response_type=token&show_dialog=true`}>Login</a>
         </div>
