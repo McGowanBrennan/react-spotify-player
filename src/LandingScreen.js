@@ -150,7 +150,7 @@ class LandingScreen extends Component {
   render() {
     if(this.state.urlCreated){
       var res = this.state.token.substring(0, 10);
-    var path = "http://localhost:3000/"
+    var path = "https://stoic-wilson-6e8c75.netlify.app/"
     path = path + this.state.customURL
       return(
         <div className="container">
@@ -170,7 +170,7 @@ class LandingScreen extends Component {
     
     if(this.state.token){
       var res = this.state.token.substring(0, 10);
-    var path = "http://localhost:3000/"
+    var path = "https://stoic-wilson-6e8c75.netlify.app/"
     path = path + this.state.customURL
       return(
         <div className="container">
