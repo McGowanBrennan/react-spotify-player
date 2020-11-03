@@ -1,9 +1,7 @@
 {
   "name": "react-instafeed",
-  "description": "Realtime Spotify Player built with React.",
   "version": "0.1.0",
-  "author": "Joe Karlsson<joekarlsson1@gmail.com>",
-  "license": "MIT",
+  
   "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.12.1",
