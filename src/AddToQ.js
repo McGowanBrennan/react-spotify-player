@@ -67,6 +67,7 @@ class AddToQ extends React.Component{
 
          firebase.firestore().collection("Tokens").doc(dbAccess).get()
         .then(snapshot => {
+            console.log(snapshot)
             this.setState({
                 token: snapshot.data().tokenID
             })
@@ -154,6 +155,7 @@ class AddToQ extends React.Component{
             )
         }
         else{
+            console.log(this.state.token)
             return(
 
                 <div className = "container2"> 
