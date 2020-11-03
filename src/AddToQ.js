@@ -153,18 +153,21 @@ class AddToQ extends React.Component{
             </div>
             )
         }
-        return(
+        else{
+            return(
 
-            <div className = "container2"> 
-                <div className="head">
-                    <h1>Find a song</h1>
+                <div className = "container2"> 
+                    <div className="head">
+                        <h1>Find a song</h1>
+                    </div>
+                    <div className="input1">
+                    <input type="text" name="name" onChange={this.handleChange}/>
+                    </div>
+                    
                 </div>
-                <div className="input1">
-                <input type="text" name="name" onChange={this.handleChange}/>
-                </div>
-                
-            </div>
-        )
+            )
+        }
+        
     }
 }
 
