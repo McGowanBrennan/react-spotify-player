@@ -198,9 +198,7 @@ class LandingScreen extends Component {
 
               <a onClick = {this.handleClick}
                 className="btn btn--loginApp-link"
-                href={`${process.env.REACT_APP_AUTHENDPOINT}?client_id=${process.env.REACT_APP_CLIENTID}&redirect_uri=${process.env.REACT_APP_REDIRECTURI + this.state.customURL}&scope=${process.env.REACT_APP_SCOPES.join(
-                  "%20"
-                )}&response_type=token&show_dialog=true`}>Login</a>
+                href={`${process.env.REACT_APP_AUTHENDPOINT}?client_id=${process.env.REACT_APP_CLIENTID}&redirect_uri=${process.env.REACT_APP_REDIRECTURI + this.state.customURL}&scope=${process.env.REACT_APP_SCOPES}&response_type=token&show_dialog=true`}>Login</a>
         </div>
       </div>
     );
