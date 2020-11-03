@@ -28,9 +28,7 @@ class App extends React.Component{
     render(){
         const eventhandler = credList => {
     
-            console.log("Im in app.js")
-            console.log(credList)
-            console.log(credList[1])
+        
             this.setState({
                 path: credList[1],
                 token: credList[0]

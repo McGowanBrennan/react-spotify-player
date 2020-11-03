@@ -33,8 +33,6 @@ class LandingScreen extends Component {
   }
 
   pushToDB = () =>{
-    console.log(this.state.collectedUserInfo)
-    console.log(this.state.crowdRanks)
 
     firebase.firestore().collection("Tokens").doc(this.state.customURL).set({
     tokenID: this.state.token,
@@ -60,8 +58,6 @@ class LandingScreen extends Component {
 
     // Set token
     let _token = hash.access_token;
-    console.log(_token)
-    console.log(typeof _token);
 
     if (_token) {
       // Set token
@@ -77,7 +73,6 @@ class LandingScreen extends Component {
   }
 
   componentWillUnmount() {
-    console.log(process.env.REACT_APP_REDIRECTURI)
     // clear the interval to save resources
     clearInterval(this.interval);
   }
@@ -127,7 +122,6 @@ class LandingScreen extends Component {
   myFunction = () => {
     /* Get the text field */
     var copyText = document.getElementById("myInput");
-    console.log(copyText)
   
     /* Select the text field */
     copyText.select();

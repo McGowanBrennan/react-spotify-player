@@ -33,7 +33,6 @@ class AddToQ extends React.Component{
               xhr.setRequestHeader("Authorization", "Bearer " + this.state.token);
             },
             success: data => {
-              console.log(data.tracks.items)
               let suggestions = data.tracks.items
               let newStateObj = []
               newStateObj.push(
@@ -62,15 +61,12 @@ class AddToQ extends React.Component{
     }
 
     componentDidMount(){
-        console.log(window.location.pathname)
         let path = window.location.pathname
         let dbAccess = path.substring(1)
-        console.log(dbAccess)
 
 
          firebase.firestore().collection("Tokens").doc(dbAccess).get()
         .then(snapshot => {
-            console.log(snapshot.data().tokenID)
             this.setState({
                 token: snapshot.data().tokenID
             })
@@ -81,7 +77,6 @@ class AddToQ extends React.Component{
         this.setState({
             choice: e.target.value
         })
-        console.log(this.state.choice)
     }
     
     addToQueue = () =>{
@@ -108,6 +103,17 @@ class AddToQ extends React.Component{
     }
 
     render(){
+
+        if(this.state.token === null || this.state.token===undefined){
+            return(
+                <div className = "container2">
+                <div className = "head">
+                    <h1>This link has expired, ask your friend to create a new URL.</h1>
+                </div>
+                </div>
+            )
+        }
+
         if(this.state.suggestions.length !== 0){
             return(
                 <div className = "container2">
