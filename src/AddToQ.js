@@ -12,7 +12,8 @@ class AddToQ extends React.Component{
             suggestions: [],
             token: this.props.token,
             path: this.props.path,
-            choice: ""
+            choice: "",
+            loading: true
         }
     }
 
@@ -69,7 +70,8 @@ class AddToQ extends React.Component{
         .then(snapshot => {
             console.log(snapshot)
             this.setState({
-                token: snapshot.data().tokenID
+                token: snapshot.data().tokenID,
+                loading: false
             })
         })
     }
@@ -105,6 +107,19 @@ class AddToQ extends React.Component{
 
     render(){
 
+        if(this.state.loading){
+            return(
+                <div className = "container2"> 
+                    <div className="head">
+                        <h1>Find a song</h1>
+                    </div>
+                    <div className="input1">
+                    <input type="text" name="name" onChange={this.handleChange}/>
+                    </div>
+                    
+                </div>
+            )
+        }
         if(this.state.token === null || this.state.token===undefined){
             return(
                 <div className = "container2">
