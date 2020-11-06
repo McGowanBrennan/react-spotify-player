@@ -97,7 +97,7 @@ class AddToQ extends React.Component{
     
     addToQueue = () =>{
         console.log('ere')
-
+        this.forceUpdate()
         $.ajax({
             url: "https://api.spotify.com/v1/me/player/queue?uri=" + this.state.choice,
             type: "POST",
