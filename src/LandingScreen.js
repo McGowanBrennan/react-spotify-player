@@ -33,9 +33,13 @@ class LandingScreen extends Component {
   }
 
   pushToDB = () =>{
-
+    var d = new Date();
+    var n = d.getTime();
+    var final = n + 2700000;
     firebase.firestore().collection("Tokens").doc(this.state.customURL).set({
     tokenID: this.state.token,
+    expiryDate: final
+    
                   })
 
 }

@@ -13,7 +13,9 @@ class AddToQ extends React.Component{
             token: this.props.token,
             path: this.props.path,
             choice: "",
-            loading: true
+            loading: true,
+            expiry: 0,
+            invalid: false
         }
     }
 
@@ -71,9 +73,18 @@ class AddToQ extends React.Component{
             console.log(snapshot)
             this.setState({
                 token: snapshot.data().tokenID,
-                loading: false
+                loading: false,
+                expiry: snapshot.data().expiryDate
             })
         })
+
+        var d = new Date();
+        var n = d.getTime();
+        if (this.state.expiry < n){
+            this.setState({
+                invalid: true
+            })
+        }
     }
 
     handleSelect = (e) =>{
@@ -120,7 +131,7 @@ class AddToQ extends React.Component{
                 </div>
             )
         }
-        if(this.state.token === null || this.state.token===undefined){
+        if(this.state.invalid){
             return(
                 <div className = "container2">
                 <div className = "head">
