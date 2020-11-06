@@ -70,22 +70,23 @@ class AddToQ extends React.Component{
 
          firebase.firestore().collection("Tokens").doc(dbAccess).get()
         .then(snapshot => {
-            console.log(snapshot)
             this.setState({
                 token: snapshot.data().tokenID,
                 loading: false,
                 expiry: snapshot.data().expiryDate
-            })
-        })
-
-        var d = new Date();
-        var n = d.getTime();
-        console.log(this.state.expiry)
-        if (this.state.expiry < n){
+            }, ()=>{
+                var d = new Date();
+            var n = d.getTime();
+            console.log(this.state.expiry)
+            if (this.state.expiry < n){
             this.setState({
                 invalid: true
             })
-        }
+        } 
+            })
+        })
+
+        
     }
 
     handleSelect = (e) =>{
