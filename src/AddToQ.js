@@ -80,6 +80,7 @@ class AddToQ extends React.Component{
 
         var d = new Date();
         var n = d.getTime();
+        console.log(this.state.expiry)
         if (this.state.expiry < n){
             this.setState({
                 invalid: true
